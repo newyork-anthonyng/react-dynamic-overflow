@@ -53,12 +53,14 @@
     "nps": "^5.8.2",
     "nps-utils": "^1.5.0",
     "prettier": "^1.11.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "semantic-release": "^15.0.2",
     "travis-deploy-once": "^4.4.0",
     "webpack": "^3.11.0"
   },
   "dependencies": {
-    "lodash.throttle": "^4.1.1",
-    "react-dom": "^16.2.0"
+    "lodash.throttle": "^4.1.1"
   }
 }
