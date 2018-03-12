@@ -1,6 +1,6 @@
 {
   "name": "react-dynamic-overflow",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "A React Component that lets you know what elements are overflowing",
   "main": "dist/index.js",
   "files": [
@@ -62,5 +62,10 @@
   },
   "dependencies": {
     "lodash.throttle": "^4.1.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
