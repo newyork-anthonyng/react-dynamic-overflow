@@ -1,6 +1,6 @@
 {
   "name": "react-dynamic-overflow",
-  "version": "1.0.1",
+  "version": "0.0.0-development",
   "description": "A React Component that lets you know what elements are overflowing",
   "main": "dist/index.js",
   "files": [
