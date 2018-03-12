@@ -1,0 +1,64 @@
+{
+  "name": "react-dynamic-overflow",
+  "version": "0.0.0-development",
+  "description": "A React Component that lets you know what elements are overflowing",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "nps",
+    "prepush": "npm start validate.prepush",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newyork-anthonyng/react-dynamic-overflow.git"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "overflow",
+    "dynamic"
+  ],
+  "author": "Anthony Ng <newyork.anthonyng@gmail.com> (http://anthonyng.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/newyork-anthonyng/react-dynamic-overflow/issues"
+  },
+  "homepage": "https://github.com/newyork-anthonyng/react-dynamic-overflow#readme",
+  "peerDependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "codecov": "^3.0.0",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.18.2",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "husky": "^0.14.3",
+    "jest": "^22.4.2",
+    "nps": "^5.8.2",
+    "nps-utils": "^1.5.0",
+    "prettier": "^1.11.1",
+    "semantic-release": "^15.0.2",
+    "travis-deploy-once": "^4.4.0",
+    "webpack": "^3.11.0"
+  },
+  "dependencies": {
+    "lodash.throttle": "^4.1.1",
+    "react-dom": "^16.2.0"
+  }
+}

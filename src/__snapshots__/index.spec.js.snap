@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should add event listener when mounting 1`] = `
+Array [
+  "resize",
+  [Function],
+]
+`;
+
+exports[`should always call children function with one element 1`] = `
+Array [
+  Array [
+    Object {
+      "containerRef": [Function],
+      "overflowElements": Array [],
+      "visibleElements": Array [
+        <span>
+          First tab
+        </span>,
+        <span>
+          Second tab
+        </span>,
+        <span>
+          Third tab
+        </span>,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "containerRef": [Function],
+      "overflowElements": Array [
+        <span>
+          Second tab
+        </span>,
+        <span>
+          Third tab
+        </span>,
+      ],
+      "visibleElements": Array [
+        <span>
+          First tab
+        </span>,
+      ],
+    },
+  ],
+]
+`;
+
+exports[`should call children function with correct arguments when all elements can be visible 1`] = `
+Array [
+  Array [
+    Object {
+      "containerRef": [Function],
+      "overflowElements": Array [],
+      "visibleElements": Array [
+        <span>
+          First tab
+        </span>,
+        <span>
+          Second tab
+        </span>,
+        <span>
+          Third tab
+        </span>,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "containerRef": [Function],
+      "overflowElements": Array [],
+      "visibleElements": Array [
+        <span>
+          First tab
+        </span>,
+        <span>
+          Second tab
+        </span>,
+        <span>
+          Third tab
+        </span>,
+      ],
+    },
+  ],
+]
+`;
+
+exports[`should call children function with correct arguments when some elements are hidden 1`] = `
+Array [
+  Array [
+    Object {
+      "containerRef": [Function],
+      "overflowElements": Array [],
+      "visibleElements": Array [
+        <span>
+          First tab
+        </span>,
+        <span>
+          Second tab
+        </span>,
+        <span>
+          Third tab
+        </span>,
+      ],
+    },
+  ],
+  Array [
+    Object {
+      "containerRef": [Function],
+      "overflowElements": Array [
+        <span>
+          Third tab
+        </span>,
+      ],
+      "visibleElements": Array [
+        <span>
+          First tab
+        </span>,
+        <span>
+          Second tab
+        </span>,
+      ],
+    },
+  ],
+]
+`;
+
+exports[`should recalculate visible elements when resizing window 1`] = `
+Array [
+  Object {
+    "containerRef": [Function],
+    "overflowElements": Array [
+      <span>
+        Second tab
+      </span>,
+      <span>
+        Third tab
+      </span>,
+    ],
+    "visibleElements": Array [
+      <span>
+        First tab
+      </span>,
+    ],
+  },
+]
+`;
+
+exports[`should remove event listener when unmounting 1`] = `
+Array [
+  "resize",
+  [Function],
+]
+`;
