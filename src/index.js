@@ -20,8 +20,7 @@ class DynamicOverflow extends React.Component {
      * Then, the containerNode and tabNode are measured to calculate how many
      * elements we can display.
      *
-     * If elements need to be hidden, everything is rerendered
-     *
+     * If elements need to be hidden, everything is rerendered.
      */
     this.calculateSize();
   }
@@ -40,7 +39,7 @@ class DynamicOverflow extends React.Component {
 
     let numberOfVisibleElements = Infinity;
     if (currentChildrenCount > maximumChildrenAllowed) {
-      // always show at least one element
+      // by default, one element is always shown
       numberOfVisibleElements = Math.max(maximumChildrenAllowed, 1);
     }
 
