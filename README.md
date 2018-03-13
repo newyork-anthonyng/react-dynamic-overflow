@@ -67,11 +67,11 @@ import DynamicOverflow from "react-dynamic-overflow";
 const Example = () => (
   <DynamicOverflow
     list={({ tabRef }) => ([
-      <span ref={tabRef} key={0}>Tab 1</span>,
-      <span key={1}>Tab 2</span>,
-      <span key={2}>Tab 3</span>,
-      <span key={3}>Tab 4</span>,
-      <span key={4}>Tab 5</span>,
+      <SomeTab ref={tabRef} key={0}>Tab 1</SomeTab>,
+      <SomeTab key={1}>Tab 2</SomeTab>,
+      <SomeTab key={2}>Tab 3</SomeTab>,
+      <SomeTab key={3}>Tab 4</SomeTab>,
+      <SomeTab key={4}>Tab 5</SomeTab>,
     ])}
   >
   {
@@ -116,7 +116,7 @@ The `list` prop is a function that is called with the following argument.
 | tabRef | A [ref](https://reactjs.org/docs/refs-and-the-dom.html) function that should be added to an element. This element, combined with the `containerRef`, will be used in determining which elements are overflowed. |
 
 # Demo
-See this [CodeSandbox demo]().
+See this [CodeSandbox demo](https://codesandbox.io/s/8zo29vnjr2).
 
 [codecov]: https://codecov.io/gh/newyork-anthonyng/react-dynamic-overflow
 [codecov-badge]: https://img.shields.io/codecov/c/github/newyork-anthonyng/react-dynamic-overflow/master.svg
