@@ -21,7 +21,7 @@ npm install --save react-dynamic-overflow
 # Why?
 `react-dynamic-overflow` is used for a specific UI pattern.
 
-Imagine you are displaying 1 row of tabs with the same width.
+Imagine you are displaying 1 row of tabs.
 
 ```
 +-------+-------+--------+--------+--------+
@@ -66,16 +66,16 @@ import DynamicOverflow from "react-dynamic-overflow";
 
 const Example = () => (
   <DynamicOverflow
-    list={({ tabRef }) => ([
-      <SomeTab ref={tabRef} key={0}>Tab 1</SomeTab>,
-      <SomeTab key={1}>Tab 2</SomeTab>,
-      <SomeTab key={2}>Tab 3</SomeTab>,
-      <SomeTab key={3}>Tab 4</SomeTab>,
-      <SomeTab key={4}>Tab 5</SomeTab>,
+    list={({ nodeRef }) => ([
+      <SomeTab ref={nodeRef} key={0}>Tab 1</SomeTab>,
+      <SomeTab ref={nodeRef} key={1}>Tab 2</SomeTab>,
+      <SomeTab ref={nodeRef} key={2}>Tab 3</SomeTab>,
+      <SomeTab ref={nodeRef} key={3}>Tab 4</SomeTab>,
+      <SomeTab ref={nodeRef} key={4}>Tab 5</SomeTab>,
     ])}
   >
   {
-    ({ visibleElements, overflowElements, containerRef }) => {
+    ({ visibleElements, overflowElements, containerRef, moreNodeRef }) => {
       return (
         <div ref={containerRef}>
           {visibleElements}
@@ -106,14 +106,15 @@ The `children` prop is a function that is called with the following arguments.
 | ---- | ----------- |
 | visibleElements | An array of elements from the `list` props which are visible. The first element will always be visible. |
 | overflowElements | An array of elements from the `list` props which are overflowed. |
-| containerRef | A [ref](https://reactjs.org/docs/refs-and-the-dom.html) function that should be added to the parent element. This element, combined with the `tabRef`, will be used in determining which elements are overflowed. |
+| containerRef | A [ref](https://reactjs.org/docs/refs-and-the-dom.html) function that should be added to the parent element. This element, combined with the `nodeRef` and `moreNodeRef`, will be used in determining which elements are overflowed. |
+| moreNodeRef | A [ref](https://reactjs.org/docs/refs-and-the-dom.html) function that should be added to the more element. This element, combined with the `containerRef` and `nodeRef`, will be used in determining which elements are overflowed. |
 
 ## list function
 The `list` prop is a function that is called with the following argument.
 
 | Name | Description |
 | ---- | ----------- |
-| tabRef | A [ref](https://reactjs.org/docs/refs-and-the-dom.html) function that should be added to an element. This element, combined with the `containerRef`, will be used in determining which elements are overflowed. |
+| nodeRef | A [ref](https://reactjs.org/docs/refs-and-the-dom.html) function that should be added to an element. This element, combined with the `containerRef` and `moreNodeRef`, will be used in determining which elements are overflowed. |
 
 # Demo
 See this [CodeSandbox demo](https://codesandbox.io/s/8zo29vnjr2).

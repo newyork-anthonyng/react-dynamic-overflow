@@ -31,11 +31,31 @@ class DynamicOverflow extends React.Component {
 
   calculateSize = () => {
     const containerWidth = this.containerNode && this.containerNode.clientWidth;
-    const firstChildWidth = this.tabNode && this.tabNode.clientWidth;
 
-    const maximumChildrenAllowed =
-      Math.floor(containerWidth / firstChildWidth) - 1;
-    const currentChildrenCount = this.props.list({}).length;
+    let moreNodeWidth = 0;
+    if (this.moreNode) {
+      const moreNodeStyle = window.getComputedStyle(this.moreNode);
+        const moreNodeMarginWidth = parseInt(moreNodeStyle.marginLeft) + parseInt(moreNodeStyle.marginRight);
+        moreNodeWidth = this.moreNode.offsetWidth + moreNodeMarginWidth;
+    }
+
+    let maximumChildrenAllowed = 0;
+    let nodeWidthSum = 0;
+
+    this.listNodes.filter(node => node !== null).forEach(
+      (node) => {
+        let nodeStyle = window.getComputedStyle(node);
+        let nodeWidth = node.offsetWidth;
+        let nodeMarginWidth = parseInt(nodeStyle.marginLeft) + parseInt(nodeStyle.marginRight);
+
+        nodeWidthSum += (nodeWidth + nodeMarginWidth);
+        if (nodeWidthSum + moreNodeWidth < containerWidth) {
+          maximumChildrenAllowed += 1;
+        }
+      }
+    )
+
+    const currentChildrenCount = this.listNodes.length;
 
     let numberOfVisibleElements = Infinity;
     if (currentChildrenCount > maximumChildrenAllowed) {
@@ -49,30 +69,38 @@ class DynamicOverflow extends React.Component {
   handleResize = throttle(this.calculateSize, this.props.throttle);
 
   containerRef = node => {
-    if (!this.containerNode) {
+    if (this.containerNode === undefined) {
       this.containerNode = node;
     }
   };
 
-  tabRef = node => {
-    if (!this.tabNode) {
-      this.tabNode = node;
+  moreNodeRef = node => {
+    if (this.moreNode === undefined) {
+      this.moreNode = node;
     }
-  };
+  }
+
+  nodeRef = node => {
+    if (this.listNodes === undefined) {
+      this.listNodes = [];
+    }
+    this.listNodes.push(node);
+  }
 
   render() {
     const { numberOfVisibleElements } = this.state;
     const { list, children } = this.props;
-    const { containerRef, tabRef } = this;
+    const { containerRef, moreNodeRef, nodeRef } = this;
 
-    const elements = list({ tabRef });
+    const elements = list({ nodeRef });
     const visibleElements = elements.slice(0, numberOfVisibleElements);
     const overflowElements = elements.slice(numberOfVisibleElements);
 
     return children({
       visibleElements,
       overflowElements,
-      containerRef
+      containerRef,
+      moreNodeRef
     });
   }
 }
